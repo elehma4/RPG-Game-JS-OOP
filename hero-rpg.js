@@ -18,8 +18,8 @@ const main = () => {
 
 
   while (goblinHealth > 0 && heroHealth > 0) {
-      console.log(`You have ${heroHealth} health and ${heroPower} power.`)
-      console.log(`The goblin has ${goblinHealth} health and ${goblinPower} power.`)
+      console.log(`You have ${heroHealth} health and ${heroPower} attack power.`)
+      console.log(`The goblin has ${goblinHealth} health and ${goblinPower} attack power.`)
       console.log()
       console.log("What do you want to do?")
       console.log("1. fight goblin")
