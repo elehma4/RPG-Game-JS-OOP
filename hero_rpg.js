@@ -11,7 +11,7 @@ const prompt = require('prompt-sync')({sigint: true});
 
 const main = () => {
 
-  let heroHealth = 1
+  let heroHealth = 3
   let heroPower = 5
   let goblinHealth = 6
   let goblinPower = 2
