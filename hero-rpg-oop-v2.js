@@ -26,7 +26,7 @@ let heroStats = this.characterStats();
 let enemyStats = enemy.characterStats();
 //* ----------------------------------------------------------------------------------------------
 //? ITEMS FOR GAME:
-//*            +7hp                       -50% accuracy for 1 turn (enemy)
+//*                +7hp                  -50% accuracy for 1 turn (enemy)
 let items = ['Cooked Trout\uD83D\uDC1F', 'Confuse Spell \u2697\uFE0F']
 //* ----------------------------------------------------------------------------------------------
 //? PROMPT MENU:
@@ -40,6 +40,7 @@ What do you want to do?
 >`)
 let rawInput = prompt()
 //* ----------------------------------------------------------------------------------------------
+// PRINCESS ADDY SPECIAL POTION VS UNDYING PIRATE ZOMBIE
 if (rawInput == "1"){
 if (this.name == "Princess Addy\uD83D\uDC51" && enemy.name == "Zombie Pirate \u2620 "){
 console.log(`${this.name} uses a special potion from the kingdom: ${weapons[2]}`);
@@ -49,13 +50,54 @@ console.log(`The potion turns the ${enemy.name} to dust.`);
 console.log(`${enemy.name} is dead.`)
 return;
 }
-// hero attacks goblin
+// CHECKS TO SEE IF CHARACTER IS ELF WIZARD ARIANWYN & Gives Magic Attacks
+if (this.name = "Elf Wizard Arianwyn\uD83E\uDDDD\u200D"){
+let math50 = Math.floor(Math.random() * 100)
+    if(math50 < 50){
+        console.log(`${this.name} uses Fire Wave\uD83D\uDD25`);
+        if(enemy.name == "Zombie Pirate \u2620 "){
+            console.log(`${enemy.name} is vulnerable to fire`);
+            enemy.health = 0
+            console.log(`${enemy.name} is dead.`)
+            return;
+        }
+    } else {
+        console.log(`${this.name} uses Water Wave\uD83C\uDF0A`);
+    }
+}
+// MONK OMAD INCREASES 2HP 20% of the time:
+if (this.name == "Monk Omad\uD83E\uDDD8\u200D"){
+let math20 = Math.floor(Math.random() * 100)
+if (math20 < 20){
+    console.log(`${this.name} has been healed 2 \u2764  health`);
+    this.health += 2;
+    this.lifeStatus()
+}
+}
+//* HERO ATTACKS ENEMY - CHECKS IF SHADE IS ENEMY || CHECKS IF HERO IS WIZARD ARIANWYN ||
+if (enemy.name !== "Shade\uD83C\uDF0C"){
+if (this.name !== "Elf Wizard Arianwyn\uD83E\uDDDD\u200D"){}
 enemy.health -= this.ATKPower
 console.log(`
 You do ${this.ATKPower} \u2694\uFE0F  damage to ${enemy.name}.`)
 if (enemy.health <= 0){
     console.log(`${enemy.name} is dead.`)
 }
+} else {
+let math10 = Math.floor(Math.random() * 100)
+if(math10 < 10){
+enemy.health -= this.ATKPower
+console.log(`
+You do ${this.ATKPower} \u2694\uFE0F  damage to ${enemy.name}.`)
+if (enemy.health <= 0){
+console.log(`${enemy.name} is dead.`)
+}
+} else {
+console.log(`${enemy.name} seems to be untouchable.`);
+console.log(`Rumors say ${enemy.name} takes damage, but rarely.`);
+console.log(`Don't give up!`);
+} 
+} // end if enemy is Shade
 } // end of rawInput 1 (fight)
 //* ----------------------------------------------------------------------------------------------
 else if (rawInput == "2"){
@@ -92,6 +134,7 @@ else{
     console.log(`Invalid input ${rawInput}`);
 }
 //* ----------------------------------------------------------------------------------------------
+//? CONFUSION IF STATEMENT:
 if (enemy.health > 0 && enemy.isConfused == false){
     // Goblin attacks hero
     this.health -= enemy.ATKPower
@@ -142,10 +185,9 @@ class Zombie extends Character{
     }
 }
 class Wizard extends Character{
-    constructor(name, health, magicPower){
-        super(health);
+    constructor(name, health, ATKPower){
+        super(health, ATKPower);
         this.name = name;
-        this.magicPower = magicPower;
     }
 }
 class Shades extends Character{
@@ -165,14 +207,15 @@ let weapons = ['Dragon Scimitar \uD83D\uDDE1\uFE0F \uD83D\uDD25', 'Poisin Dagger
 let Elohim = new Hero("Hero Elohim", 20, 3, armor[0], weapons[0])
 let PrincessAddy = new Hero("Princess Addy\uD83D\uDC51", 15, 3, armor[1], weapons[1])
 let WizardArianwyn = new Wizard("Elf Wizard Arianwyn\uD83E\uDDDD\u200D", 30, 5) // Ally Wizard -> Uses fire wave 50% & water wave 50%
+let MonkOmad = new Hero("Monk Omad\uD83E\uDDD8\u200D", 17, 1, null, null);
 //* ----------------------------------------------------------------------------------------------
 // Enemy Options:
-let WizardLucien = new Wizard("Wizard Lucien", 13, 3) // Enemy Wizard -> Uses soul split which restores 1 health
+let WizardLucien = new Wizard("Wizard Lucien\uD83E\uDDD9\u200D", 13, 3) // Enemy Wizard -> Uses soul split which restores 1 health
 let Grubfoot = new Goblin("Grubfoot the Goblin", 8, 2)
 let Mudknuckles = new Goblin("Mudknuckles", 5, 5)
 let infinity = Number(Infinity)
 let ZombiePirate = new Zombie("Zombie Pirate \u2620 ", infinity, 1)
-let Shade = new Shades("Shade\uD83C\uDF0C", 3, 1)
+let Shade = new Shades("Shade\uD83C\uDF0C", 1, 1)
 
 //* ----------------------------------------------------------------------------------------------
 
@@ -182,7 +225,8 @@ console.log(`\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25 WELCOME TO HEROSCA
 Choose Your Hero: 
 1) ${Elohim.name}
 2) ${PrincessAddy.name}
-3) ${WizardArianwyn.name}`);
+3) ${WizardArianwyn.name}
+4) ${MonkOmad.name}`);
 let yourHero = prompt()
 
 if (yourHero == '1'){
@@ -191,6 +235,8 @@ if (yourHero == '1'){
     yourHero = PrincessAddy;
 } else if (yourHero == '3'){
     yourHero = WizardArianwyn;
+} else if (yourHero == '4'){
+    yourHero = MonkOmad;
 } else {return `${yourHero} is invalid`}
 
 console.log(`Choose Your Enemy: 

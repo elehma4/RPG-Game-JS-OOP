@@ -31,6 +31,6 @@ console.log(armor);
 console.log(weapons);
 console.log(`Princess Addy\uD83D\uDC51`);
 console.log("Elf Wizard Arianwyn\uD83E\uDDDD\u200D");
-console.log('Wizard Lucien\uD83E\uDDD9\u200D');
 console.log('Shade\uD83C\uDF0C');
-console.log('');
+console.log("Wizard Lucien\uD83E\uDDD9\u200D");
+console.log("uses Water Wave\uD83C\uDF0A");
