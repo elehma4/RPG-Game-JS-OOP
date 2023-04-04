@@ -96,4 +96,3 @@ let ZombiePirate = new Zombie("Zombie Pirate", infinity, 1)
 //? Hero attacks Zombie:
 Elohim.attack(ZombiePirate)
 
-
