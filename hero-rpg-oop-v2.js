@@ -51,7 +51,7 @@ console.log(`${enemy.name} is dead.`)
 return;
 }
 // CHECKS TO SEE IF CHARACTER IS ELF WIZARD ARIANWYN & Gives Magic Attacks
-if (this.name = "Elf Wizard Arianwyn\uD83E\uDDDD\u200D"){
+if (this.name == "Elf Wizard Arianwyn\uD83E\uDDDD\u200D"){
 let math50 = Math.floor(Math.random() * 100)
     if(math50 < 50){
         console.log(`${this.name} uses Fire Wave\uD83D\uDD25`);
@@ -74,9 +74,13 @@ if (math20 < 20){
     this.lifeStatus()
 }
 }
-//* HERO ATTACKS ENEMY - CHECKS IF SHADE IS ENEMY || CHECKS IF HERO IS WIZARD ARIANWYN ||
+
+//* HERO ATTACKS ENEMY - CHECKS IF SHADE IS ENEMY 
 if (enemy.name !== "Shade\uD83C\uDF0C"){
-if (this.name !== "Elf Wizard Arianwyn\uD83E\uDDDD\u200D"){}
+let math17 = Math.floor(Math.random() * 100)
+if (math17 < 17){
+    this.ATKPower = this.ATKPower * 2
+}
 enemy.health -= this.ATKPower
 console.log(`
 You do ${this.ATKPower} \u2694\uFE0F  damage to ${enemy.name}.`)
@@ -84,6 +88,10 @@ if (enemy.health <= 0){
     console.log(`${enemy.name} is dead.`)
 }
 } else {
+let math17 = Math.floor(Math.random() * 100)
+if (math17 < 17){
+    this.ATKPower = this.ATKPower * 2
+}
 let math10 = Math.floor(Math.random() * 100)
 if(math10 < 10){
 enemy.health -= this.ATKPower
@@ -136,9 +144,18 @@ else{
 //* ----------------------------------------------------------------------------------------------
 //? CONFUSION IF STATEMENT:
 if (enemy.health > 0 && enemy.isConfused == false){
-    // Goblin attacks hero
+    if(enemy.name !== 'Wizard Lucien\uD83E\uDDD9\u200D'){
+    // Enemy attacks hero
     this.health -= enemy.ATKPower
     console.log(`${enemy.name} does ${enemy.ATKPower} \u2694\uFE0F  damage to you.`)
+    } else {
+        console.log(`${enemy.name} uses Soul Split\u27B0`);
+        this.health -= enemy.ATKPower
+        console.log(`${enemy.name} does ${enemy.ATKPower} \u2694\uFE0F  damage to you.`)
+        console.log(`Soul Split steals 1 health`);
+        enemy.health += 1;
+        enemy.lifeStatus()
+    }
     if (this.health <= 0){
         console.log("You are dead.")
     }
@@ -148,8 +165,17 @@ if (enemy.health > 0 && enemy.isConfused == false){
             console.log(`${enemy.name} missed their attack.`);
         } else if (randomNumber50 >= 50){
             console.log(`${enemy.name} hits their attack despite being confused.`);
+            if (enemy.name !== "Wizard Lucien\uD83E\uDDD9\u200D"){
             this.health -= enemy.ATKPower;
             console.log(`${enemy.name} does ${enemy.ATKPower} \u2694\uFE0F  damage to you.`);
+            } else {
+                console.log(`${enemy.name} uses Soul Split\u27B0`);
+                this.health -= enemy.ATKPower
+                console.log(`${enemy.name} does ${enemy.ATKPower} \u2694\uFE0F  damage to you.`)
+                console.log(`Soul Split steals 1 health`);
+                enemy.health += 1;
+                enemy.lifeStatus()
+            }
             if(this.health <= 0){
                 console.log("You are dead.");
             }
