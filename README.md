@@ -29,7 +29,7 @@ This is an RPG Game made with Javascript using Object Orient Programming. Enjoy!
 2. Graceful Cloak🦸 (protects Hero 25% of the time)
 3. Agility Boots🥾 (Hero quickly equips if trying to flee)
 
-
+![In Game](images/inGame.png)
 
 ## OOP RPG Game Assignment Notes:
 In this exercise, you will develop a hero RPG (*Role Playing Game*) using all of the cool new javascript knowledge you've acquired. This game will be created using **Object Oriented Programming**.
@@ -61,24 +61,6 @@ For example
 >- health = 3  ==> (7 - 4)
 >- power = 3
 >
-
-Run following command to clone this repository onto your local computer
-
-1. Clone this repository: `git clone https://github.com/DigitalCraftsStudents/python-rpg-starter.git`
-2. `cd js-hw-rpg`
-3. `git init`
-4. `git add`
-5. `git commit -m 'rpg game'`
-6. Create a new repository *without* a README in **your** github account
-7. Follow the instructions to connect and push your local repo to your remote repository 
-    - `git remote remove origin`
-    - `git remote add origin [url of your repo]`
-    - `git push --set-upstream origin main`
-
-
-Use `hero_rpg.js`, located in this repository, as a starting point for your game.
-
-As you complete each step, commit, push, and tag the final working version. In the future we'll base a refactor off of one the steps.
 
 ## RPG Game Part 1
 
