@@ -81,6 +81,11 @@ let math17 = Math.floor(Math.random() * 100)
 if (math17 < 17){
     this.ATKPower = this.ATKPower * 2
 }
+if (this.weapon == 'Dragon Claws\uD83D\uDC09\uD83D\uDD25'){
+    console.log(`${this.name} is wielding ${this.weapon}`);
+    console.log(`${this.weapon} increase attack speed 2x`);
+    enemy.health -= this.ATKPower
+} 
 enemy.health -= this.ATKPower
 console.log(`
 You do ${this.ATKPower} \u2694\uFE0F  damage to ${enemy.name}.`)
@@ -143,7 +148,7 @@ else{
 }
 
 //* ----------------------------------------------------------------------------------------------
-//? CONFUSION IF STATEMENT:
+//? CONFUSION IF STATEMENT & ARMOR -:
 if (enemy.health > 0 && enemy.isConfused == false){
     if(enemy.name !== 'Wizard Lucien\uD83E\uDDD9\u200D'){
     if(this.armor == 'Rune Full Body Armor \uD83D\uDEE1\uFE0F'){
@@ -157,27 +162,30 @@ if (enemy.health > 0 && enemy.isConfused == false){
         if(Math30 < 30){
         console.log(`${this.armor} protects ${this.name}`);
         console.log(`${this.name} takes no damage.`);
+        } else {
+            console.log(`${this.armor} failed to protect ${this.name}`);
+            // Enemy attacks hero
+            this.health -= enemy.ATKPower;
+            console.log(`${enemy.name} does ${enemy.ATKPower} \u2694\uFE0F  damage to you.`);
         }
-    }
-    else {
+    } else {
+        console.log(`${this.armor} failed to protect ${this.name}`);
         // Enemy attacks hero
         this.health -= enemy.ATKPower
         console.log(`${enemy.name} does ${enemy.ATKPower} \u2694\uFE0F  damage to you.`)
         }
-    } 
     } else {
         console.log(`${enemy.name} uses Soul Split\u27B0`);
         this.health -= enemy.ATKPower
         console.log(`${enemy.name} does ${enemy.ATKPower} \u2694\uFE0F  damage to you.`)
-        console.log(`Soul Split steals 1 health`);
+        console.log(`Soul Split steals 1 \u2764  health`);
         enemy.health += 1;
         enemy.lifeStatus()
-    }
-
+    } 
     if (this.health <= 0){
         console.log("You are dead.")
     }
-    else if (enemy.health > 0 && enemy.isConfused == true){
+    } else if (enemy.health > 0 && enemy.isConfused == true){
     const randomNumber50 = Math.floor(Math.random() * 100);
         if (randomNumber50 < 50){
             console.log(`${enemy.name} missed their attack.`);
@@ -190,7 +198,7 @@ if (enemy.health > 0 && enemy.isConfused == false){
                 console.log(`${enemy.name} uses Soul Split\u27B0`);
                 this.health -= enemy.ATKPower
                 console.log(`${enemy.name} does ${enemy.ATKPower} \u2694\uFE0F  damage to you.`)
-                console.log(`Soul Split steals 1 health`);
+                console.log(`Soul Split steals 1 \u2764  health`);
                 enemy.health += 1;
                 enemy.lifeStatus()
             }
@@ -199,6 +207,15 @@ if (enemy.health > 0 && enemy.isConfused == false){
             }
         }
 } enemy.isConfused = false; // isConfused is reset after 1 turn
+if (this.weapon == 'Poisin Dagger \uD83D\uDDE1\uFE0F \uD83E\uDE78' && enemy.name !== "Shade\uD83C\uDF0C"){
+    console.log(`${enemy.name} is poisoned by the ${this.weapon} ${this.name} is wielding.`);
+    enemy.health -= 1;
+    console.log(`${enemy.name} loses 1 \u2764  health`);
+    enemy.lifeStatus()
+    if(enemy.health <= 0){
+        console.log(`${enemy.name} is dead.`);
+    }
+}
 console.log('-------------------------------------------');
 if(enemy.health > 0 && this.health > 0){
 console.log('\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25 NEXT TURN \uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25');
@@ -247,7 +264,7 @@ class Shades extends Character{
 //?                                   50% protection  |   30% protection
 let armor = ['Rune Full Body Armor \uD83D\uDEE1\uFE0F', 'Graceful Cloak\uD83E\uDDB8', 'Agility Boots\uD83E\uDD7E']
 //?                   ATKPower +2 | -1 hp every other turn to enemy |  speed to flee
-let weapons = ['Dragon Scimitar \uD83D\uDDE1\uFE0F \uD83D\uDD25', 'Poisin Dagger \uD83D\uDDE1\uFE0F \uD83E\uDE78', 'Mortality Elixir \uD83E\uDDEA']
+let weapons = ['Dragon Claws\uD83D\uDC09\uD83D\uDD25', 'Poisin Dagger \uD83D\uDDE1\uFE0F \uD83E\uDE78', 'Mortality Elixir \uD83E\uDDEA']
 //* ----------------------------------------------------------------------------------------------
 // Hero Player Options:
 let Elohim = new Hero("Hero Elohim", 20, 3, armor[0], weapons[0])
@@ -308,29 +325,5 @@ if (yourEnemy == '1'){
     console.log('-------------------------------------------');
     yourHero.attack(yourEnemy)
 };    
-characterChoices()
 
-// HERO ATTACK OPTIONS (fight):
-
-//? Hero attacks Goblin:
-// Elohim.attack(Grubfoot)
-// Elohim.attack(Mudknuckles)
-// PrincessAddy.attack(Mudknuckles)
-// PrincessAddy.attack(Grubfoot)
-// WizardArianwyn.attack(Grubfoot)
-// WizardArianwyn.attack(Mudknuckles)
-
-//? Hero attacks Zombie:
-// Elohim.attack(ZombiePirate)
-// PrincessAddy.attack(ZombiePirate)
-// WizardArianwyn.attack(ZombiePirate)
-
-//? Hero attacks Wizard:
-// Elohim.attack(WizardLucien)
-// PrincessAddy.attack(WizardLucien)
-// WizardArianwyn.attack(WizardLucien)
-
-//? Hero attacks Shade
-// Elohim.attack(Shade)
-// PrincessAddy.attack(Shade)
-// WizardArianwyn.attack(Shade)
+characterChoices() // KICKS GAME OFF :) HAVE FUN & STAY ALIVE!
