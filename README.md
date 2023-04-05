@@ -30,6 +30,8 @@ This is an RPG Game made with Javascript using Object Orient Programming. Enjoy!
 3. Agility Boots🥾 (Hero quickly equips if trying to flee)
 
 
+
+## OOP RPG Game Assignment Notes:
 In this exercise, you will develop a hero RPG (*Role Playing Game*) using all of the cool new javascript knowledge you've acquired. This game will be created using **Object Oriented Programming**.
 
 In this exercise, you will develop a hero RPG (*Role Playing Game*) using all of the cool new python knowledge you've acquired. This game will be created using **Object Oriented Programming**.
