@@ -85,14 +85,32 @@ if (math17 < 17){
     this.doubledAttack = true;
     console.log(`Attack Power has been doubled!`);
 }
-if (this.weapon == 'Dragon Claws\uD83D\uDC09\uD83D\uDD25'){
+if (this.weapon == 'Dragon Claws\uD83D\uDC09\uD83D\uDD25'){ // DRAGON CLAWS ATTACK TWICE
     console.log(`${this.name} is wielding ${this.weapon}`);
-    console.log(`${this.weapon} increase attack speed 2x`);
+    console.log(`${this.weapon} increase attack speed 2x:`);
     if (this.doubledAttack){
     enemy.health -= this.ATKPower * 2; // use doubled attack power
+    console.log(`You do ${this.ATKPower} \u2694\uFE0F  damage to ${enemy.name}.`)
+    enemy.health -= this.ATKPower * 2; // use doubled attack power
+    console.log(`You do ${this.ATKPower} \u2694\uFE0F  damage to ${enemy.name}.`)
     this.doubledAttack = false; // reset the attack
 } else {
     enemy.health -= this.ATKPower; // use regular attack power
+    console.log(`You do ${this.ATKPower} \u2694\uFE0F  damage to ${enemy.name}.`)
+    enemy.health -= this.ATKPower; // use regular attack power
+    console.log(`You do ${this.ATKPower} \u2694\uFE0F  damage to ${enemy.name}.`)
+    if (enemy.health <= 0){
+        console.log(`${enemy.name} is dead.`)
+        if (enemy.name == 'Wizard Lucien\uD83E\uDDD9\u200D'){
+            console.log(`You collect 700 Coins\uD83D\uDCB0`);
+        } else if (enemy.name == 'Grubfoot the Goblin'){
+            console.log(`You collect 200 Coins\uD83D\uDCB0`)
+        } else if (enemy.name == 'Mudknuckles'){
+            console.log(`You collect 200 Coins\uD83D\uDCB0`);
+        } else {
+            console.log(`You collect 500 Coins\uD83D\uDCB0`);
+        }
+    }
 }
 } else {
     if (this.doubledAttack){
@@ -101,11 +119,19 @@ if (this.weapon == 'Dragon Claws\uD83D\uDC09\uD83D\uDD25'){
     } else {
         enemy.health -= this.ATKPower; // use regular attack power
     }
-}
-console.log(`
-You do ${this.ATKPower} \u2694\uFE0F  damage to ${enemy.name}.`)
-if (enemy.health <= 0){
-    console.log(`${enemy.name} is dead.`)
+    console.log(`You do ${this.ATKPower} \u2694\uFE0F  damage to ${enemy.name}.`)
+    if (enemy.health <= 0){
+        console.log(`${enemy.name} is dead.`)
+        if (enemy.name == 'Wizard Lucien\uD83E\uDDD9\u200D'){
+            console.log(`You collect 700 Coins\uD83D\uDCB0`);
+        } else if (enemy.name == 'Grubfoot the Goblin'){
+            console.log(`You collect 200 Coins\uD83D\uDCB0`)
+        } else if (enemy.name == 'Mudknuckles'){
+            console.log(`You collect 200 Coins\uD83D\uDCB0`);
+        } else {
+            console.log(`You collect 500 Coins\uD83D\uDCB0`);
+        }
+    }
 }
 } else {
 let math10 = Math.floor(Math.random() * 100)
@@ -115,6 +141,15 @@ console.log(`
 You do ${this.ATKPower} \u2694\uFE0F  damage to ${enemy.name}.`)
 if (enemy.health <= 0){
 console.log(`${enemy.name} is dead.`)
+if (enemy.name == 'Wizard Lucien\uD83E\uDDD9\u200D'){
+    console.log(`You collect 700 Coins\uD83D\uDCB0`);
+} else if (enemy.name == 'Grubfoot the Goblin'){
+    console.log(`You collect 200 Coins\uD83D\uDCB0`)
+} else if (enemy.name == 'Mudknuckles'){
+    console.log(`You collect 200 Coins\uD83D\uDCB0`);
+} else {
+    console.log(`You collect 500 Coins\uD83D\uDCB0`);
+}
 }
 } else {
 console.log(`${enemy.name} seems to be untouchable.`);
@@ -293,15 +328,15 @@ let armor = ['Rune Full Body Armor\uD83D\uDEE1\uFE0F ', 'Graceful Cloak\uD83E\uD
 let weapons = ['Dragon Claws\uD83D\uDC09\uD83D\uDD25', 'Poisin Dagger \uD83D\uDDE1\uFE0F \uD83E\uDE78', 'Mortality Elixir \uD83E\uDDEA']
 //* ----------------------------------------------------------------------------------------------
 // Hero Player Options:
-let Elohim = new Hero("Hero Elohim", 20, 3, armor[0], weapons[0])
-let PrincessAddy = new Hero("Princess Addy\uD83D\uDC51", 15, 3, armor[1], weapons[1])
-let WizardArianwyn = new Wizard("Elf Wizard Arianwyn\uD83E\uDDDD\u200D", 30, 5, armor[1]) // Ally Wizard -> Uses fire wave 50% & water wave 50%
+let Elohim = new Hero("Hero Elohim\uD83D\uDC32", 20, 2, armor[0], weapons[0])
+let PrincessAddy = new Hero("Princess Addy\uD83D\uDC51", 19, 3, armor[1], weapons[1])
+let WizardArianwyn = new Wizard("Elf Wizard Arianwyn\uD83E\uDDDD\u200D", 25, 5, armor[1]) // Ally Wizard -> Uses fire wave 50% & water wave 50%
 let MonkOmad = new Hero("Monk Omad\uD83E\uDDD8\u200D", 17, 1, armor[1]);
 //* ----------------------------------------------------------------------------------------------
 // Enemy Options:
-let WizardLucien = new Wizard("Wizard Lucien\uD83E\uDDD9\u200D", 13, 3) // Enemy Wizard -> Uses soul split which restores 1 health
-let Grubfoot = new Goblin("Grubfoot the Goblin", 8, 2)
-let Mudknuckles = new Goblin("Mudknuckles", 5, 5)
+let WizardLucien = new Wizard("Wizard Lucien\uD83E\uDDD9\u200D", 25, 3) // Enemy Wizard -> Uses soul split which restores 1 health
+let Grubfoot = new Goblin("Grubfoot the Goblin", 12, 2)
+let Mudknuckles = new Goblin("Mudknuckles", 8, 5)
 let infinity = Number(Infinity)
 let ZombiePirate = new Zombie("Zombie Pirate \u2620 ", infinity, 1)
 let Shade = new Shades("Shade\uD83C\uDF0C", 1, 1)
