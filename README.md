@@ -1,9 +1,33 @@
-# RPG Game
+# 🔥🔥🔥🔥 WELCOME TO HEROSCAPE 🔥🔥🔥🔥
+This is an RPG Game made with Javascript using Object Orient Programming. Enjoy!
 
 ## GAME & CHARACTER NOTES (Please See Here):
+### Heros:
+1. Hero Elohim🐲 
+2. Princess Addy👑
+3. Elf Wizard Arianwyn🧝‍
+4. Monk Omad🧘‍
 
+### Enemies:
+1. Grubfoot the Goblin
+2. Mudknuckles
+3. Wizard Lucien🧙‍
+4. Zombie Pirate ☠ 
+5. Shade🌌
 
+#### Items:
+1. Cooked Trout 🐟 (increase +7 ❤ health)
+2. Confuse Spell ⚗️ (decreases enemy accuracy by 50%)
 
+#### Weapons:
+1. Dragon Claws🐉🔥 (increases attack speed 2x)
+2. Poisin Dagger 🗡️🩸 (poisons enemy: -1 health each turn)
+3. Mortality Elixir 🧪 (secret potion from Princess Addy's kingdom)
+
+#### Armor:
+1. Rune Full Body Armor🛡️ (protects Hero 50% of the time)
+2. Graceful Cloak🦸 (protects Hero 25% of the time)
+3. Agility Boots🥾 (Hero quickly equips if trying to flee)
 
 
 In this exercise, you will develop a hero RPG (*Role Playing Game*) using all of the cool new javascript knowledge you've acquired. This game will be created using **Object Oriented Programming**.

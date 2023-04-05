@@ -90,9 +90,9 @@ if (this.weapon == 'Dragon Claws\uD83D\uDC09\uD83D\uDD25'){ // DRAGON CLAWS ATTA
     console.log(`${this.weapon} increase attack speed 2x:`);
     if (this.doubledAttack){
     enemy.health -= this.ATKPower * 2; // use doubled attack power
-    console.log(`You do ${this.ATKPower} \u2694\uFE0F  damage to ${enemy.name}.`)
+    console.log(`You do ${this.ATKPower * 2} \u2694\uFE0F  damage to ${enemy.name}.`)
     enemy.health -= this.ATKPower * 2; // use doubled attack power
-    console.log(`You do ${this.ATKPower} \u2694\uFE0F  damage to ${enemy.name}.`)
+    console.log(`You do ${this.ATKPower * 2} \u2694\uFE0F  damage to ${enemy.name}.`)
     this.doubledAttack = false; // reset the attack
 } else {
     enemy.health -= this.ATKPower; // use regular attack power
@@ -115,11 +115,12 @@ if (this.weapon == 'Dragon Claws\uD83D\uDC09\uD83D\uDD25'){ // DRAGON CLAWS ATTA
 } else {
     if (this.doubledAttack){
         enemy.health -= this.ATKPower * 2; // use doubled attack power
+        console.log(`You do ${this.ATKPower * 2} \u2694\uFE0F  damage to ${enemy.name}.`)
         this.doubledAttack = false; // reset the attack
     } else {
         enemy.health -= this.ATKPower; // use regular attack power
+        console.log(`You do ${this.ATKPower} \u2694\uFE0F  damage to ${enemy.name}.`)
     }
-    console.log(`You do ${this.ATKPower} \u2694\uFE0F  damage to ${enemy.name}.`)
     if (enemy.health <= 0){
         console.log(`${enemy.name} is dead.`)
         if (enemy.name == 'Wizard Lucien\uD83E\uDDD9\u200D'){
@@ -236,11 +237,31 @@ if (enemy.health > 0 && enemy.isConfused == false){
         }
     } else {
         console.log(`${enemy.name} uses Soul Split\u27B0`);
-        this.health -= enemy.ATKPower
-        console.log(`${enemy.name} does ${enemy.ATKPower} \u2694\uFE0F  damage to you.`)
-        console.log(`Soul Split steals 1 \u2764  health`);
-        enemy.health += 1;
-        enemy.lifeStatus()
+            if (this.armor == 'Rune Full Body Armor\uD83D\uDEE1\uFE0F '){
+            let Math50 = Math.floor(Math.random() * 100)
+            if(Math50 < 50){
+            console.log(`${this.armor} protects ${this.name}`);
+            console.log(`${this.name} takes no damage.`);
+            } else {
+            console.log(`${this.armor} failed to protect ${this.name}`);
+            this.health -= enemy.ATKPower
+            console.log(`${enemy.name} does ${enemy.ATKPower} \u2694\uFE0F  damage to you.`)
+            console.log(`Soul Split steals 1 \u2764  health`);
+            enemy.health += 1;
+            }
+        } else if (this.armor == 'Graceful Cloak\uD83E\uDDB8'){
+            let Math25 = Math.floor(Math.random() * 100)
+            if(Math25 < 25){
+            console.log(`${this.armor} protects ${this.name}`);
+            console.log(`${this.name} takes no damage.`);
+            } else {
+            console.log(`${this.armor} failed to protect ${this.name}`);
+            this.health -= enemy.ATKPower
+            console.log(`${enemy.name} does ${enemy.ATKPower} \u2694\uFE0F  damage to you.`)
+            console.log(`Soul Split steals 1 \u2764  health`);
+            enemy.health += 1;
+            }
+        }
     } 
     if (this.health <= 0){
         console.log("You are dead.")
@@ -255,12 +276,32 @@ if (enemy.health > 0 && enemy.isConfused == false){
             this.health -= enemy.ATKPower;
             console.log(`${enemy.name} does ${enemy.ATKPower} \u2694\uFE0F  damage to you.`);
             } else {
-                console.log(`${enemy.name} uses Soul Split\u27B0`);
+            console.log(`${enemy.name} uses Soul Split\u27B0`);
+                if (this.armor == 'Rune Full Body Armor\uD83D\uDEE1\uFE0F '){
+                let Math50 = Math.floor(Math.random() * 100)
+                if(Math50 < 50){
+                console.log(`${this.armor} protects ${this.name}`);
+                console.log(`${this.name} takes no damage.`);
+                } else {
+                console.log(`${this.armor} failed to protect ${this.name}`);
                 this.health -= enemy.ATKPower
                 console.log(`${enemy.name} does ${enemy.ATKPower} \u2694\uFE0F  damage to you.`)
                 console.log(`Soul Split steals 1 \u2764  health`);
                 enemy.health += 1;
-                enemy.lifeStatus()
+                }
+            } else if (this.armor == 'Graceful Cloak\uD83E\uDDB8'){
+                let Math25 = Math.floor(Math.random() * 100)
+                if(Math25 < 25){
+                console.log(`${this.armor} protects ${this.name}`);
+                console.log(`${this.name} takes no damage.`);
+                } else {
+                console.log(`${this.armor} failed to protect ${this.name}`);
+                this.health -= enemy.ATKPower
+                console.log(`${enemy.name} does ${enemy.ATKPower} \u2694\uFE0F  damage to you.`)
+                console.log(`Soul Split steals 1 \u2764  health`);
+                enemy.health += 1;
+                }
+            }
             }
             if(this.health <= 0){
                 console.log("You are dead.");
@@ -334,7 +375,7 @@ let WizardArianwyn = new Wizard("Elf Wizard Arianwyn\uD83E\uDDDD\u200D", 25, 5, 
 let MonkOmad = new Hero("Monk Omad\uD83E\uDDD8\u200D", 17, 1, armor[1]);
 //* ----------------------------------------------------------------------------------------------
 // Enemy Options:
-let WizardLucien = new Wizard("Wizard Lucien\uD83E\uDDD9\u200D", 25, 3) // Enemy Wizard -> Uses soul split which restores 1 health
+let WizardLucien = new Wizard("Wizard Lucien\uD83E\uDDD9\u200D", 30, 4) // Enemy Wizard -> Uses soul split which restores 1 health
 let Grubfoot = new Goblin("Grubfoot the Goblin", 12, 2)
 let Mudknuckles = new Goblin("Mudknuckles", 8, 5)
 let infinity = Number(Infinity)

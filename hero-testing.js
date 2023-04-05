@@ -38,3 +38,7 @@ console.log(`uses Soul Split\u27B0`);
 console.log('Dragon Claws\uD83D\uDC09\uD83D\uDD25');
 console.log(`You collect 700 Coins\uD83D\uDCB0`);
 console.log('Hero Elohim\uD83D\uDC32');
+
+console.log(['Rune Full Body Armor\uD83D\uDEE1\uFE0F ', 'Graceful Cloak\uD83E\uDDB8', 'Agility Boots\uD83E\uDD7E'],
+//?                   ATKPower +2 | -1 hp every other turn to enemy |  speed to flee
+['Dragon Claws\uD83D\uDC09\uD83D\uDD25', 'Poisin Dagger \uD83D\uDDE1\uFE0F \uD83E\uDE78', 'Mortality Elixir \uD83E\uDDEA']);
