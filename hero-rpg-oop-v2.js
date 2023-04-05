@@ -323,7 +323,6 @@ console.log('\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25 NEXT TURN \uD83D\u
 } else {console.log('\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25 GAME OVER \uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25');}
 
 }// end of while statement
-
 }// end of attack method
 }// end of Character class
 //* ----------------------------------------------------------------------------------------------

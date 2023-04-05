@@ -4,9 +4,22 @@ This is an RPG Game made with Javascript using Object Orient Programming. Enjoy!
 ## GAME & CHARACTER NOTES (Please See Here):
 ### Heros:
 1. Hero Elohim🐲 
+-  Weapon: Dragon Claws🐉🔥
+-  Armor: Rune Full Body Armor🛡️ 
+
 2. Princess Addy👑
+-  Weapon: Poisin Dagger 🗡️🩸
+-  Weapon: Secret Weapon 🧪 (used against Zombie)
+-  Armor: Graceful Cloak🦸
+
 3. Elf Wizard Arianwyn🧝‍
+-  Attack Ability: 50% chance of Fire Wave🔥 Spell (Zombie is vulnerable to fire)
+-  Attack Ability: 50% chance of Water Wave🌊 Spell
+-  Armor: Graceful Cloak🦸
+
 4. Monk Omad🧘‍
+-  Healing Ability: Heal +2 ❤ health ~20% of turns
+-  Armor: Graceful Cloak🦸
 
 ### Enemies:
 1. Grubfoot the Goblin
