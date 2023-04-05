@@ -7,6 +7,7 @@ constructor(health, ATKPower){
     this.health = health;
     this.ATKPower = ATKPower;
     this.isConfused = false;
+    this.doubledAttack = false;
 }
 
 lifeStatus(){
@@ -79,24 +80,32 @@ if (math20 < 20){
 if (enemy.name !== "Shade\uD83C\uDF0C"){
 let math17 = Math.floor(Math.random() * 100)
 if (math17 < 17){
-    this.ATKPower = this.ATKPower * 2
+    this.doubledAttack = true;
+    console.log(`Attack Power has been doubled!`);
 }
 if (this.weapon == 'Dragon Claws\uD83D\uDC09\uD83D\uDD25'){
     console.log(`${this.name} is wielding ${this.weapon}`);
     console.log(`${this.weapon} increase attack speed 2x`);
-    enemy.health -= this.ATKPower
-} 
-enemy.health -= this.ATKPower
+    if (this.doubledAttack){
+    enemy.health -= this.ATKPower * 2; // use doubled attack power
+    this.doubledAttack = false; // reset the attack
+} else {
+    enemy.health -= this.ATKPower; // use regular attack power
+}
+} else {
+    if (this.doubledAttack){
+        enemy.health -= this.ATKPower * 2; // use doubled attack power
+        this.doubledAttack = false; // reset the attack
+    } else {
+        enemy.health -= this.ATKPower; // use regular attack power
+    }
+}
 console.log(`
 You do ${this.ATKPower} \u2694\uFE0F  damage to ${enemy.name}.`)
 if (enemy.health <= 0){
     console.log(`${enemy.name} is dead.`)
 }
 } else {
-let math17 = Math.floor(Math.random() * 100)
-if (math17 < 17){
-    this.ATKPower = this.ATKPower * 2
-}
 let math10 = Math.floor(Math.random() * 100)
 if(math10 < 10){
 enemy.health -= this.ATKPower
@@ -118,7 +127,7 @@ else if (rawInput == "2"){
     let choice1or2 = prompt()
     if(choice1or2 == "1"){
         this.health += 7;
-        console.log(`${this.name} eats the ${items[0]} and restores 7 \u2764  health`);
+        console.log(`${this.name} eats the ${items[0]} and increase 7 \u2764  health`);
         console.log(`${this.lifeStatus()}`);
     } else if (choice1or2 == "2"){
         console.log(`${this.name} uses a ${items[1]}  on ${enemy.name} and decreased their accuracy by 50%`);
@@ -151,15 +160,20 @@ else{
 //? CONFUSION IF STATEMENT & ARMOR -:
 if (enemy.health > 0 && enemy.isConfused == false){
     if(enemy.name !== 'Wizard Lucien\uD83E\uDDD9\u200D'){
-    if(this.armor == 'Rune Full Body Armor \uD83D\uDEE1\uFE0F'){
+    if(this.armor == 'Rune Full Body Armor\uD83D\uDEE1\uFE0F '){
         let Math50 = Math.floor(Math.random() * 100)
         if(Math50 < 50){
         console.log(`${this.armor} protects ${this.name}`);
         console.log(`${this.name} takes no damage.`);
-        }   
+        } else {
+            console.log(`${this.armor} failed to protect ${this.name}`);
+            // Enemy attacks hero
+            this.health -= enemy.ATKPower;
+            console.log(`${enemy.name} does ${enemy.ATKPower} \u2694\uFE0F  damage to you.`);
+        }
     } else if(this.armor == 'Graceful Cloak\uD83E\uDDB8'){
-        let Math30 = Math.floor(Math.random() * 100)
-        if(Math30 < 30){
+        let Math25 = Math.floor(Math.random() * 100)
+        if(Math25 < 25){
         console.log(`${this.armor} protects ${this.name}`);
         console.log(`${this.name} takes no damage.`);
         } else {
@@ -207,7 +221,7 @@ if (enemy.health > 0 && enemy.isConfused == false){
             }
         }
 } enemy.isConfused = false; // isConfused is reset after 1 turn
-if (this.weapon == 'Poisin Dagger \uD83D\uDDE1\uFE0F \uD83E\uDE78' && enemy.name !== "Shade\uD83C\uDF0C"){
+if (enemy.health > 0 && this.weapon == 'Poisin Dagger \uD83D\uDDE1\uFE0F \uD83E\uDE78'){
     console.log(`${enemy.name} is poisoned by the ${this.weapon} ${this.name} is wielding.`);
     enemy.health -= 1;
     console.log(`${enemy.name} loses 1 \u2764  health`);
@@ -248,9 +262,10 @@ class Zombie extends Character{
     }
 }
 class Wizard extends Character{
-    constructor(name, health, ATKPower){
+    constructor(name, health, ATKPower, armor){
         super(health, ATKPower);
         this.name = name;
+        this.armor = armor;
     }
 }
 class Shades extends Character{
@@ -261,16 +276,16 @@ class Shades extends Character{
 }
 //* ----------------------------------------------------------------------------------------------
 // ARMOR:
-//?                                   50% protection  |   30% protection
-let armor = ['Rune Full Body Armor \uD83D\uDEE1\uFE0F', 'Graceful Cloak\uD83E\uDDB8', 'Agility Boots\uD83E\uDD7E']
+//?                                   50% protection  |   25% protection
+let armor = ['Rune Full Body Armor\uD83D\uDEE1\uFE0F ', 'Graceful Cloak\uD83E\uDDB8', 'Agility Boots\uD83E\uDD7E']
 //?                   ATKPower +2 | -1 hp every other turn to enemy |  speed to flee
 let weapons = ['Dragon Claws\uD83D\uDC09\uD83D\uDD25', 'Poisin Dagger \uD83D\uDDE1\uFE0F \uD83E\uDE78', 'Mortality Elixir \uD83E\uDDEA']
 //* ----------------------------------------------------------------------------------------------
 // Hero Player Options:
 let Elohim = new Hero("Hero Elohim", 20, 3, armor[0], weapons[0])
 let PrincessAddy = new Hero("Princess Addy\uD83D\uDC51", 15, 3, armor[1], weapons[1])
-let WizardArianwyn = new Wizard("Elf Wizard Arianwyn\uD83E\uDDDD\u200D", 30, 5) // Ally Wizard -> Uses fire wave 50% & water wave 50%
-let MonkOmad = new Hero("Monk Omad\uD83E\uDDD8\u200D", 17, 1, null, null);
+let WizardArianwyn = new Wizard("Elf Wizard Arianwyn\uD83E\uDDDD\u200D", 30, 5, armor[1]) // Ally Wizard -> Uses fire wave 50% & water wave 50%
+let MonkOmad = new Hero("Monk Omad\uD83E\uDDD8\u200D", 17, 1, armor[1]);
 //* ----------------------------------------------------------------------------------------------
 // Enemy Options:
 let WizardLucien = new Wizard("Wizard Lucien\uD83E\uDDD9\u200D", 13, 3) // Enemy Wizard -> Uses soul split which restores 1 health
@@ -320,7 +335,7 @@ if (yourEnemy == '1'){
     yourEnemy = ZombiePirate;
 } else if (yourEnemy == '5'){
     yourEnemy = Shade;
-}
+} else {return `${yourEnemy} is invalid`;}
     console.log(`You've chosen ${yourHero.name} as your Hero and ${yourEnemy.name} as your Enemy!`);
     console.log('-------------------------------------------');
     yourHero.attack(yourEnemy)
