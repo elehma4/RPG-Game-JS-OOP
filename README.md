@@ -29,6 +29,7 @@ This is an RPG Game made with Javascript using Object Orient Programming. Enjoy!
 2. Graceful Cloak🦸 (protects Hero 25% of the time)
 3. Agility Boots🥾 (Hero quickly equips if trying to flee)
 
+#### Gameplay:
 ![In Game](images/inGame.png)
 
 ## OOP RPG Game Assignment Notes:
