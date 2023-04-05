@@ -36,3 +36,4 @@ console.log("Wizard Lucien\uD83E\uDDD9\u200D");
 console.log("uses Water Wave\uD83C\uDF0A");
 console.log(`uses Soul Split\u27B0`);
 console.log('Dragon Claws\uD83D\uDC09\uD83D\uDD25');
+console.log(`You collect 700 Coins\uD83D\uDCB0`);

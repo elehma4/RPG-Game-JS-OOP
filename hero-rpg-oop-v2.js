@@ -49,6 +49,7 @@ enemy.health = 0
 console.log(`*poof*`);
 console.log(`The potion turns the ${enemy.name} to dust.`);
 console.log(`${enemy.name} is dead.`)
+console.log(`You collect 500 Coins\uD83D\uDCB0`);
 return;
 }
 // CHECKS TO SEE IF CHARACTER IS ELF WIZARD ARIANWYN & Gives Magic Attacks
@@ -60,6 +61,7 @@ let math50 = Math.floor(Math.random() * 100)
             console.log(`${enemy.name} is vulnerable to fire`);
             enemy.health = 0
             console.log(`${enemy.name} is dead.`)
+            console.log(`You collect 500 Coins\uD83D\uDCB0`);
             return;
         }
     } else {
@@ -140,6 +142,15 @@ else if (rawInput == "2"){
         console.log(`You do ${this.ATKPower} \u2694\uFE0F  damage to ${enemy.name}.`)
         if (enemy.health <= 0){
         console.log(`${enemy.name} is dead.`)
+        if (enemy.name == 'Wizard Lucien\uD83E\uDDD9\u200D'){
+            console.log(`You collect 700 Coins\uD83D\uDCB0`);
+        } else if (enemy.name == 'Grubfoot the Goblin'){
+            console.log(`You collect 200 Coins\uD83D\uDCB0`)
+        } else if (enemy.name == 'Mudknuckles'){
+            console.log(`You collect 200 Coins\uD83D\uDCB0`);
+        } else {
+            console.log(`You collect 500 Coins\uD83D\uDCB0`);
+        }
         }
     } 
 } // end of rawInput 2 (items)
