@@ -1,4 +1,13 @@
 # RPG Game
+
+## GAME & CHARACTER NOTES (Please See Here):
+
+
+
+
+
+In this exercise, you will develop a hero RPG (*Role Playing Game*) using all of the cool new javascript knowledge you've acquired. This game will be created using **Object Oriented Programming**.
+
 In this exercise, you will develop a hero RPG (*Role Playing Game*) using all of the cool new python knowledge you've acquired. This game will be created using **Object Oriented Programming**.
 
 The game starts off with 2 characters: a `hero` and a `goblin`. Each character will be given a starting health and starting value. 

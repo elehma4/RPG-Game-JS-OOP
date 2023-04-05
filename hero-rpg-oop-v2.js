@@ -141,13 +141,30 @@ else if (rawInput == "4"){
 else{
     console.log(`Invalid input ${rawInput}`);
 }
+
 //* ----------------------------------------------------------------------------------------------
 //? CONFUSION IF STATEMENT:
 if (enemy.health > 0 && enemy.isConfused == false){
     if(enemy.name !== 'Wizard Lucien\uD83E\uDDD9\u200D'){
-    // Enemy attacks hero
-    this.health -= enemy.ATKPower
-    console.log(`${enemy.name} does ${enemy.ATKPower} \u2694\uFE0F  damage to you.`)
+    if(this.armor == 'Rune Full Body Armor \uD83D\uDEE1\uFE0F'){
+        let Math50 = Math.floor(Math.random() * 100)
+        if(Math50 < 50){
+        console.log(`${this.armor} protects ${this.name}`);
+        console.log(`${this.name} takes no damage.`);
+        }   
+    } else if(this.armor == 'Graceful Cloak\uD83E\uDDB8'){
+        let Math30 = Math.floor(Math.random() * 100)
+        if(Math30 < 30){
+        console.log(`${this.armor} protects ${this.name}`);
+        console.log(`${this.name} takes no damage.`);
+        }
+    }
+    else {
+        // Enemy attacks hero
+        this.health -= enemy.ATKPower
+        console.log(`${enemy.name} does ${enemy.ATKPower} \u2694\uFE0F  damage to you.`)
+        }
+    } 
     } else {
         console.log(`${enemy.name} uses Soul Split\u27B0`);
         this.health -= enemy.ATKPower
@@ -156,10 +173,11 @@ if (enemy.health > 0 && enemy.isConfused == false){
         enemy.health += 1;
         enemy.lifeStatus()
     }
+
     if (this.health <= 0){
         console.log("You are dead.")
     }
-} else if (enemy.health > 0 && enemy.isConfused == true){
+    else if (enemy.health > 0 && enemy.isConfused == true){
     const randomNumber50 = Math.floor(Math.random() * 100);
         if (randomNumber50 < 50){
             console.log(`${enemy.name} missed their attack.`);
@@ -184,10 +202,10 @@ if (enemy.health > 0 && enemy.isConfused == false){
 console.log('-------------------------------------------');
 if(enemy.health > 0 && this.health > 0){
 console.log('\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25 NEXT TURN \uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25');
-}
-// end of enemy if statement
+} else {console.log('\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25 GAME OVER \uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25');}
+
 }// end of while statement
-console.log('\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25 GAME OVER \uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25');
+
 }// end of attack method
 }// end of Character class
 //* ----------------------------------------------------------------------------------------------
@@ -196,6 +214,8 @@ class Hero extends Character{
     constructor(name, health, ATKPower, armor, weapon){
         super(health, ATKPower)
         this.name = name;
+        this.armor = armor;
+        this.weapon = weapon;
     }
 }
 class Goblin extends Character{
@@ -224,9 +244,9 @@ class Shades extends Character{
 }
 //* ----------------------------------------------------------------------------------------------
 // ARMOR:
-//?               50% protection  |   30% protection
+//?                                   50% protection  |   30% protection
 let armor = ['Rune Full Body Armor \uD83D\uDEE1\uFE0F', 'Graceful Cloak\uD83E\uDDB8', 'Agility Boots\uD83E\uDD7E']
-//?              ATKPower +2 | -1 hp every other turn to enemy |  speed to flee
+//?                   ATKPower +2 | -1 hp every other turn to enemy |  speed to flee
 let weapons = ['Dragon Scimitar \uD83D\uDDE1\uFE0F \uD83D\uDD25', 'Poisin Dagger \uD83D\uDDE1\uFE0F \uD83E\uDE78', 'Mortality Elixir \uD83E\uDDEA']
 //* ----------------------------------------------------------------------------------------------
 // Hero Player Options:
