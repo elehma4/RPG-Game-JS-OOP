@@ -1,4 +1,4 @@
-# 🔥🔥🔥🔥 WELCOME TO HEROSCAPE 🔥🔥🔥🔥
+# 🔥 WELCOME TO HEROSCAPE 🔥
 This is an RPG Game made with Javascript using Object Orient Programming. Enjoy!
 
 ## GAME & CHARACTER NOTES (Please See Here):
